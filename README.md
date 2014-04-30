@@ -1,0 +1,1 @@
+A very lightweight Vocabulary Trainer that I've been using for my Russian study sessions. Use it at your own will.
