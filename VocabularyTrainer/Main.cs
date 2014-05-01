@@ -79,20 +79,27 @@ namespace RussianVocabularyHelper
             }
 
             wordList.Add(word);
-
             dgv.DataSource = null;
             dgv.DataSource = wordList;
 
             clearFields();
-
             saveWordList();
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RandomWord randomWord = new RandomWord();
-            randomWord.WordList = wordList;
-            randomWord.ShowDialog();
+            var randomWordForm = new RandomWord();
+            randomWordForm.WordList = wordList;
+            this.Visible = false;
+            randomWordForm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void alwaysOnTopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var menuItem = sender as ToolStripMenuItem;
+            menuItem.Checked = !menuItem.Checked;
+            this.TopMost = menuItem.Checked;
         }
         #endregion
     }
