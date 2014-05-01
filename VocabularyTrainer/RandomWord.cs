@@ -24,12 +24,18 @@ namespace RussianVocabularyHelper
             InitializeComponent();
 
             random = new Random(DateTime.Now.Second);
+            WordList = null;
+            CurrentWord = null;
         }
         #endregion
 
         #region Methods
         private void showRandomWord()
         {
+            if(WordList == null || WordList.Count == 0)
+            {
+                return;
+            }
             CurrentWord = WordList[random.Next(WordList.Count)];
             lblRussian.Text = CurrentWord.Russian;
         }
@@ -48,7 +54,10 @@ namespace RussianVocabularyHelper
 
         private void lblAnswer_MouseMove(object sender, MouseEventArgs e)
         {
-            (sender as Label).Text = CurrentWord.English;
+            if (CurrentWord != null)
+            {
+                (sender as Label).Text = CurrentWord.English;
+            }
         }
 
         private void lblAnswer_MouseLeave(object sender, EventArgs e)
