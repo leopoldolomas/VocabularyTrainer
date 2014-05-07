@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -169,7 +170,7 @@
             // alwaysOnTopToolStripMenuItem
             // 
             this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "Always on top";
             this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_Click);
             // 
@@ -181,9 +182,9 @@
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vocabulary Trainer";
             this.Shown += new System.EventHandler(this.Main_Shown);
