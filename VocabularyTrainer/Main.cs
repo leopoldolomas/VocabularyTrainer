@@ -88,8 +88,7 @@ namespace RussianVocabularyHelper
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var randomWordForm = new RandomWord();
-            randomWordForm.WordList = wordList;
+            var randomWordForm = new RandomWord(wordList);
             this.Visible = false;
             randomWordForm.ShowDialog();
             this.Visible = true;
