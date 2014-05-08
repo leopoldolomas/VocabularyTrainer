@@ -55,6 +55,15 @@ namespace RussianVocabularyHelper
             serializer.Serialize(stream, wordList);
             stream.Close();
         }
+
+        private void showRandomWord(RandomWord.Mode mode)
+        {
+            var randomWordForm = new RandomWord(wordList);
+            randomWordForm.SelectedMode = mode;
+            this.Visible = false;
+            randomWordForm.ShowDialog();
+            this.Visible = true;
+        }
         #endregion
 
         #region Events
@@ -86,12 +95,14 @@ namespace RussianVocabularyHelper
             saveWordList();
         }
 
-        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiRussianToEnglish_Click(object sender, EventArgs e)
         {
-            var randomWordForm = new RandomWord(wordList);
-            this.Visible = false;
-            randomWordForm.ShowDialog();
-            this.Visible = true;
+            showRandomWord(RandomWord.Mode.RussianToEnglish);
+        }
+
+        private void tsmiEnglishToRussian_Click(object sender, EventArgs e)
+        {
+            showRandomWord(RandomWord.Mode.EnglishToRussian);
         }
 
         private void alwaysOnTopToolStripMenuItem_Click(object sender, EventArgs e)

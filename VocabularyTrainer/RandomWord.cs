@@ -14,6 +14,9 @@ namespace RussianVocabularyHelper
     public partial class RandomWord : Form
     {
         #region Vars/Properties
+        public enum Mode { RussianToEnglish, EnglishToRussian }
+        public Mode SelectedMode { get; set; }
+
         private List<Word> WordList { get; set; }
         private List<int> WordIndexHistory { get; set; }
 
@@ -38,7 +41,7 @@ namespace RussianVocabularyHelper
         private void showWordAtIndex(int wordIndex)
         {
             var word = WordList[WordIndexHistory[wordIndex]];
-            lblRussian.Text = word.Russian;
+            lblRussian.Text = (this.SelectedMode == RandomWord.Mode.RussianToEnglish ? word.Russian : word.English);
         }
 
         private void showRandomWord()
@@ -47,7 +50,7 @@ namespace RussianVocabularyHelper
             var word = WordList[randomId];
             WordIndexHistory.Add(randomId);
             currentIndex = WordIndexHistory.Count - 1;
-            lblRussian.Text = word.Russian;
+            lblRussian.Text = (this.SelectedMode == RandomWord.Mode.RussianToEnglish ? word.Russian : word.English);
         }
         #endregion
 
@@ -87,7 +90,8 @@ namespace RussianVocabularyHelper
         {
             if (currentIndex > -1)
             {
-                (sender as Label).Text = WordList[WordIndexHistory[currentIndex]].English;
+                Word word = WordList[WordIndexHistory[currentIndex]];
+                (sender as Label).Text = (this.SelectedMode == RandomWord.Mode.RussianToEnglish ? word.English : word.Russian);
             }
         }
 
