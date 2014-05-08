@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbRussian = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSaveDBAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOpenDB = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRussianToEnglish = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEnglishToRussian = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,6 +140,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
             this.testToolStripMenuItem,
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -144,6 +148,29 @@
             this.menuStrip1.Size = new System.Drawing.Size(478, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSaveDBAs,
+            this.tsmiOpenDB});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // tsmiSaveDBAs
+            // 
+            this.tsmiSaveDBAs.Name = "tsmiSaveDBAs";
+            this.tsmiSaveDBAs.Size = new System.Drawing.Size(152, 22);
+            this.tsmiSaveDBAs.Text = "Save DB As...";
+            this.tsmiSaveDBAs.Click += new System.EventHandler(this.tsmiSaveDBAs_Click);
+            // 
+            // tsmiOpenDB
+            // 
+            this.tsmiOpenDB.Name = "tsmiOpenDB";
+            this.tsmiOpenDB.Size = new System.Drawing.Size(152, 22);
+            this.tsmiOpenDB.Text = "Open DB";
+            this.tsmiOpenDB.Click += new System.EventHandler(this.tsmiOpenDB_Click);
             // 
             // testToolStripMenuItem
             // 
@@ -224,6 +251,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiEnglishToRussian;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSaveDBAs;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOpenDB;
     }
 }
 
