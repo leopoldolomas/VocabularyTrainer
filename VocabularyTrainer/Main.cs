@@ -45,7 +45,7 @@ namespace RussianVocabularyHelper
             }
 
             wordList = null;
-            DeserializeObject<List<Word>>(ref wordList, appConfig.DBFilePath);
+            DeserializeObject(ref wordList, appConfig.DBFilePath);
 
             dgv.DataSource = null;
             dgv.DataSource = wordList;
@@ -69,7 +69,7 @@ namespace RussianVocabularyHelper
                 config.DBFilePath = "words.xml";
                 saveConfig();
             }
-            DeserializeObject<Config>(ref appConfig, configFilename);
+            DeserializeObject(ref appConfig, configFilename);
         }
 
         private void showRandomWord(RandomWord.Mode mode)
