@@ -7,8 +7,8 @@
     <ProjectGuid>{6F5E8A08-B505-4221-8628-29DB2B1399BF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RussianVocabularyHelper</RootNamespace>
-    <AssemblyName>RussianVocabularyHelper</AssemblyName>
+    <RootNamespace>VocabularyTrainer</RootNamespace>
+    <AssemblyName>VocabularyTrainer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -74,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RandomWord.resx">
       <DependentUpon>RandomWord.cs</DependentUpon>

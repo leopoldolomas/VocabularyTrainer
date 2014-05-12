@@ -169,7 +169,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 98);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(336, 70);
+            this.panel4.Size = new System.Drawing.Size(336, 66);
             this.panel4.TabIndex = 7;
             // 
             // labelResult
@@ -200,6 +200,7 @@
             this.Name = "RandomWord";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Random Word";
             this.TopMost = true;
             this.Shown += new System.EventHandler(this.RandomWord_Shown);
