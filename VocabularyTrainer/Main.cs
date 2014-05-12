@@ -65,17 +65,18 @@ namespace RussianVocabularyHelper
         {
             if (!File.Exists(configFilename))
             {
-                var config = new Config();
-                config.DBFilePath = "words.xml";
+                appConfig = new Config();
+                appConfig.DBFilePath = "words.xml";
                 saveConfig();
             }
             DeserializeObject(ref appConfig, configFilename);
+            this.TopMost = appConfig.TopMost;
+            alwaysOnTopToolStripMenuItem.Checked = this.TopMost;
         }
 
         private void showRandomWord(RandomWord.Mode mode)
         {
-            var randomWordForm = new RandomWord(wordList);
-            randomWordForm.SelectedMode = mode;
+            var randomWordForm = new RandomWord(wordList, mode);
             this.Visible = false;
             randomWordForm.ShowDialog();
             this.Visible = true;
@@ -114,12 +115,12 @@ namespace RussianVocabularyHelper
 
         private void tsmiRussianToEnglish_Click(object sender, EventArgs e)
         {
-            showRandomWord(RandomWord.Mode.RussianToEnglish);
+            showRandomWord(RandomWord.Mode.OriginToAnswer);
         }
 
         private void tsmiEnglishToRussian_Click(object sender, EventArgs e)
         {
-            showRandomWord(RandomWord.Mode.EnglishToRussian);
+            showRandomWord(RandomWord.Mode.AnswerToOrigin);
         }
 
         private void alwaysOnTopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,6 +128,8 @@ namespace RussianVocabularyHelper
             var menuItem = sender as ToolStripMenuItem;
             menuItem.Checked = !menuItem.Checked;
             this.TopMost = menuItem.Checked;
+            appConfig.TopMost = this.TopMost;
+            saveConfig();
         }
 
         private void tsmiSaveDBAs_Click(object sender, EventArgs e)
@@ -152,6 +155,11 @@ namespace RussianVocabularyHelper
                 loadWordList();
             }
         }
+
+        private void tsmiExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
 
         #region Serialization
@@ -159,6 +167,11 @@ namespace RussianVocabularyHelper
         {
             Debug.Assert(obj != null);
             Debug.Assert(!string.IsNullOrEmpty(xmlFilePath));
+
+            if(File.Exists(xmlFilePath))
+            {
+                File.Delete(xmlFilePath);
+            }
 
             var serializer = new XmlSerializer(typeof(T));
             var stream = File.OpenWrite(xmlFilePath);

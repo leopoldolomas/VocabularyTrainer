@@ -8,26 +8,26 @@ namespace RussianVocabularyHelper
 {
     public class Word
     {
-        public string Russian { get; set; }
-        public string English { get; set; }
+        public string Origin { get; set; }
+        public string Answer { get; set; }
 
         public Word()
         {
-            this.Russian = "";
-            this.English = "";
+            this.Origin = "";
+            this.Answer = "";
         }
 
-        public Word(string russian, string english)
+        public Word(string origin, string answer)
         {
-            this.Russian = russian;
-            this.English = english;
+            this.Origin = origin;
+            this.Answer = answer;
         }
 
         public override bool Equals(object obj)
         {
             Word other = obj as Word;
-            return this.Russian.Equals(other.Russian) &&
-                this.English.Equals(other.English);
+            return this.Origin.Equals(other.Origin) &&
+                this.Answer.Equals(other.Answer);
         }
     }
 }
