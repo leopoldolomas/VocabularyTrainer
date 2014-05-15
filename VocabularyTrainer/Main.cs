@@ -88,6 +88,8 @@ namespace RussianVocabularyHelper
         {
             loadConfig();
             loadWordList();
+
+            dgv.AutoResizeColumn(0);
         }
 
         private void Submit_Click(object sender, EventArgs e)
@@ -154,6 +156,11 @@ namespace RussianVocabularyHelper
                 saveConfig();
                 loadWordList();
             }
+        }
+
+        private void dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            saveWordList();
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)

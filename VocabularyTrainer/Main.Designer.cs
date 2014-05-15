@@ -42,13 +42,13 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSaveDBAs = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOpenDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRussianToEnglish = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEnglishToRussian = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,6 +74,7 @@
             this.dgv.RowHeadersVisible = false;
             this.dgv.Size = new System.Drawing.Size(478, 335);
             this.dgv.TabIndex = 0;
+            this.dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellEndEdit);
             // 
             // panel1
             // 
@@ -165,16 +166,29 @@
             // tsmiSaveDBAs
             // 
             this.tsmiSaveDBAs.Name = "tsmiSaveDBAs";
-            this.tsmiSaveDBAs.Size = new System.Drawing.Size(152, 22);
+            this.tsmiSaveDBAs.Size = new System.Drawing.Size(141, 22);
             this.tsmiSaveDBAs.Text = "Save DB As...";
             this.tsmiSaveDBAs.Click += new System.EventHandler(this.tsmiSaveDBAs_Click);
             // 
             // tsmiOpenDB
             // 
             this.tsmiOpenDB.Name = "tsmiOpenDB";
-            this.tsmiOpenDB.Size = new System.Drawing.Size(152, 22);
+            this.tsmiOpenDB.Size = new System.Drawing.Size(141, 22);
             this.tsmiOpenDB.Text = "Open DB";
             this.tsmiOpenDB.Click += new System.EventHandler(this.tsmiOpenDB_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            // 
+            // tsmiExit
+            // 
+            this.tsmiExit.Name = "tsmiExit";
+            this.tsmiExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.tsmiExit.Size = new System.Drawing.Size(141, 22);
+            this.tsmiExit.Text = "Exit";
+            this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
             // testToolStripMenuItem
             // 
@@ -213,19 +227,6 @@
             this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "Always on top";
             this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // tsmiExit
-            // 
-            this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.tsmiExit.Size = new System.Drawing.Size(152, 22);
-            this.tsmiExit.Text = "Exit";
-            this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
             // Main
             // 
