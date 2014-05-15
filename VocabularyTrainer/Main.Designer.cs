@@ -74,6 +74,7 @@
             this.dgv.RowHeadersVisible = false;
             this.dgv.Size = new System.Drawing.Size(478, 335);
             this.dgv.TabIndex = 0;
+            this.dgv.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgv_CellBeginEdit);
             this.dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellEndEdit);
             // 
             // panel1

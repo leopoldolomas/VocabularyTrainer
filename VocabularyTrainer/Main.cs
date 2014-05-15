@@ -19,6 +19,7 @@ namespace RussianVocabularyHelper
         private List<Word> wordList;
         private Config appConfig;
         private string configFilename;
+        private Word unmodifiedWord;
         #endregion
 
         #region Constructor(s)
@@ -161,9 +162,33 @@ namespace RussianVocabularyHelper
             }
         }
 
+        private void dgv_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            unmodifiedWord = new Word(dgv.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                                      dgv.Rows[e.RowIndex].Cells[1].Value.ToString());
+        }
+
         private void dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            saveWordList();
+            var rows = dgv.Rows[e.RowIndex];
+            var cell1 = rows.Cells[0].Value;
+            var cell2 = rows.Cells[1].Value;
+
+            if (cell1 != null &&
+                cell2 != null &&
+                !String.IsNullOrEmpty(cell1.ToString().Trim()) &&
+                !String.IsNullOrEmpty(cell2.ToString().Trim()))
+            {
+                rows.Cells[0].Value = cell1.ToString().Trim();
+                rows.Cells[1].Value = cell2.ToString().Trim();
+                saveWordList();
+            }
+            else 
+            {
+                var word = wordList[e.RowIndex];
+                word.Answer = unmodifiedWord.Answer;
+                word.Origin = unmodifiedWord.Origin;
+            }
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
