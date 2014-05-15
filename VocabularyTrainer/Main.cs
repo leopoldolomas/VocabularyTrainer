@@ -89,7 +89,10 @@ namespace RussianVocabularyHelper
             loadConfig();
             loadWordList();
 
-            dgv.AutoResizeColumn(0);
+            if (dgv.RowCount > 0)
+            {
+                dgv.AutoResizeColumn(0);
+            }
         }
 
         private void Submit_Click(object sender, EventArgs e)
